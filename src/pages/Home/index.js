@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const Home = () => {
 	const [ user, setUser ] = useState('');
 	const [ error, setError ] = useState(false);
+	const history = useHistory();
 
 	const handleRepos = async () => {
 		const response = axios.get(`https:/api.github.com/users/${user}/repos`)
 		response
 			.then(result => {
+				const repositories = result.data.map(repo => repo.name);
+				localStorage.setItem('repositories', JSON.stringify(repositories));
 				setError(false);
-				console.log(result.data);
+				history.push('/repositories');
 			})
 			.catch(err => setError(true));
 	};
