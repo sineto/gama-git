@@ -27,6 +27,7 @@ export const Button = styled.button`
 	background: transparent;
 	padding: 0.65em 1em;
 	cursor: pointer;
+	outline: none;
 
 	&:hover {
 		color: white;

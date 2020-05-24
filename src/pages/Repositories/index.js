@@ -26,7 +26,7 @@ const Repositories = () => {
 			<List>
 				{
 					repositories.map(repository => {
-						return <ListItem key={repository.id}>{ repository.name }</ListItem>
+						return <ListItem key={repository.id}><a href={repository.url} target='_blank' rel='noopener noreferrer'>{ repository.name }</a></ListItem>
 					})
 				}
 			</List>

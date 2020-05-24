@@ -14,7 +14,11 @@ const Home = () => {
 		response
 			.then(result => {
 				const repositories = result.data.map(repo => {
-					return { id:repo.id, name: repo.name }
+					return { 
+						id:repo.id, 
+						name: repo.name,
+						url: repo.html_url
+					};
 				});
 				localStorage.setItem('repositories', JSON.stringify(repositories));
 				setError(false);

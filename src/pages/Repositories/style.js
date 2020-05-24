@@ -31,4 +31,13 @@ export const ListItem = styled.li`
 	background: black;
 	margin 0.35em 0;
 	padding: 0.65em 1em;
+
+	a {
+		text-decoration: none;
+		color: white;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 `;
