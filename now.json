@@ -2,8 +2,5 @@
   "version": 2,
   "name": "gama-git",
   "builds": [{ "src": "package.json", "use": "@now/static-build" }],
-  "routes": [
-    { "src": "/", "dest": "./src/pages/Home/index.js" },
-    { "src": "/repositories", "dest": "./src/pages/Repositories/index.js" }
-  ]
+  "routes": [{ "src": ".*", "dest": "/index.html" }]
 }
