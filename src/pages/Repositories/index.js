@@ -23,7 +23,7 @@ const Repositories = () => {
 			<ul>
 				{
 					repositories.map(repository => {
-						return <li>{ repository }</li>
+						return <li key={repository.id}>{ repository.name }</li>
 					})
 				}
 			</ul>

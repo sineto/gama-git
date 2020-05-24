@@ -11,7 +11,9 @@ const Home = () => {
 		const response = axios.get(`https:/api.github.com/users/${user}/repos`)
 		response
 			.then(result => {
-				const repositories = result.data.map(repo => repo.name);
+				const repositories = result.data.map(repo => {
+					return { id:repo.id, name: repo.name }
+				});
 				localStorage.setItem('repositories', JSON.stringify(repositories));
 				setError(false);
 				history.push('/repositories');
