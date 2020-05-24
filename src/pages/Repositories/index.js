@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { Container, LinkItem, List, ListItem } from './style';
+
 const Repositories = () => {
 	const [ repositories, setRepositories ] = useState([]);
 	const history = useHistory();
@@ -18,16 +20,18 @@ const Repositories = () => {
 	}, [history]);
 
 	return (
-		<>
+		<Container>
+			<LinkItem to='/'>Voltar</LinkItem>
 			<h1>Repositories</h1>
-			<ul>
+			<List>
 				{
 					repositories.map(repository => {
-						return <li key={repository.id}>{ repository.name }</li>
+						return <ListItem key={repository.id}>{ repository.name }</ListItem>
 					})
 				}
-			</ul>
-		</>
+			</List>
+			<LinkItem to='/'>Voltar</LinkItem>
+		</Container>
 	);
 };
 
