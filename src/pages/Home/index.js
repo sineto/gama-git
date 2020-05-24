@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
+import { Container, Input, Button, SpanError } from './style';
+
 const Home = () => {
 	const [ user, setUser ] = useState('');
 	const [ error, setError ] = useState(false);
@@ -22,24 +24,25 @@ const Home = () => {
 	};
 
 	return (
-		<>
+		<Container>
 			<div>
-				<input
+				<Input
 					type='text'
 					placeholder='Usuário'
 					value={user}
 					onChange={e => setUser(e.target.value)}
 				/>
-				<button
+				<Button
 					type='button'
 					onClick={handleRepos}
 				>
 				Pesquisar
-				</button>
+				</Button>
 			</div>
-			{ error ? <span>Ocorreu um erro. Tente Novamente.</span> : '' }
-		</>
+			{ error ? <SpanError>Ocorreu um erro. Tente Novamente.</SpanError> : '' }
+		</Container>
 	);
+
 };
 
 export default Home;
